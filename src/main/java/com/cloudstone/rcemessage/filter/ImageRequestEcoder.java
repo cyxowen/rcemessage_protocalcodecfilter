@@ -18,6 +18,6 @@ public class ImageRequestEcoder implements ProtocolEncoder {
 	}
 
 	public void dispose(IoSession session) throws Exception {
-		
+		// do release resource in here.
 	}
 }
