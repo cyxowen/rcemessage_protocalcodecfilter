@@ -10,11 +10,12 @@ public class ImageRequestDecoder implements ProtocolDecoder {
 
 	public void decode(IoSession session, IoBuffer in, ProtocolDecoderOutput out)
 			throws Exception {
-		if (in.remaining()>12) {
-			
-			ImageRequest request = new ImageRequest(in.getInt(), in.getInt(), in.getInt());
+		if (in.remaining()>=12) {
+			int width = in.getInt();
+			int height = in.getInt();
+			int characters = in.getInt();
+			ImageRequest request = new ImageRequest(width, height, characters);
 			out.write(request);
-			
 		} else {
 			throw new ProtocolDecoderException("request buffer length error");
 		}

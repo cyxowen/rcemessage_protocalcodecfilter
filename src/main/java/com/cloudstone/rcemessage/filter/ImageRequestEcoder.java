@@ -9,7 +9,7 @@ public class ImageRequestEcoder implements ProtocolEncoder {
 
 	public void encode(IoSession session, Object message, ProtocolEncoderOutput out) throws Exception {
 		ImageRequest request = (ImageRequest) message;
-		IoBuffer buffer = IoBuffer.allocate(12, true);
+		IoBuffer buffer = IoBuffer.allocate(12, false);
 		buffer.putInt(request.getWidth());
 		buffer.putInt(request.getHeight());
 		buffer.putInt(request.getNumOfCharacters());

@@ -39,6 +39,7 @@ public class ImageResponseDecoder implements ProtocolDecoder {
 				BufferedImage image = getImage(in);
 				ImageResponse response = new ImageResponse(state.image1, image);
 				out.write(response);
+				state.image1 = null;
 			} else {
 				throw new ProtocolDecoderException("error prefixed data available");
 			}
@@ -53,7 +54,7 @@ public class ImageResponseDecoder implements ProtocolDecoder {
 	public void dispose(IoSession session) throws Exception {
 		
 	}
-
+	
 	
 	private BufferedImage getImage(IoBuffer buffer) throws IOException {
 		int length = buffer.getInt();

@@ -5,7 +5,6 @@ public class ImageRequest {
 	private int height;
 	private int numOfCharacters;
 	public ImageRequest(int width, int height, int numOfCharacters) {
-		super();
 		this.width = width;
 		this.height = height;
 		this.numOfCharacters = numOfCharacters;
